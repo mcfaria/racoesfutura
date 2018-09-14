@@ -8,6 +8,7 @@ import Perfil from '@/components/Usuario/Perfil'
 import ProdutoLista from '@/components/Produto/ProdutoLista'
 import ProdutoCriar from '@/components/Produto/ProdutoCriar'
 import PedidoCriar from '@/components/Pedido/PedidoCriar'
+import PedidoFinalizar from '@/components/Pedido/PedidoFinalizar'
 import ClienteCriar from '@/components/Cliente/ClienteCriar'
 
 Vue.use(Router)
@@ -53,6 +54,11 @@ export default new Router({
       path: '/pedido/novo',
       name: 'Novo Pedido',
       component: PedidoCriar
+    },
+    {
+      path: '/pedido/finalizar',
+      name: 'Finalizar Pedido',
+      component: PedidoFinalizar
     },
     {
       path: '/cliente/novo',

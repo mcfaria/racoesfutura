@@ -28,6 +28,12 @@
           Sair
         </v-btn>
       </v-toolbar-items>
+      <v-toolbar-items class="hidden-sm-only hidden-md-only hidden-lg-only hidden-xl-only">
+        <v-btn flat v-show="estaLogado" @click="sair" >
+          <v-icon left>exit_to_app</v-icon>
+          Sair
+        </v-btn>
+      </v-toolbar-items>
     </v-toolbar>
     <v-content>
         <router-view />
@@ -45,15 +51,16 @@ export default {
   computed:{
     menuItens() {
       let menuItens = [
-        { icon: 'face', title: 'Novo Usuario', link:'/usuario/novo' },
+        // { icon: 'face', title: 'Novo Usuario', link:'/usuario/novo' },
         { icon: 'lock_open', title: 'Entrar', link:'/entrar'}]
 
       if(this.estaLogado){
         menuItens = [
         { icon: 'create', title: 'Novo Pedido', link:'/pedido/novo' },
-        { icon: 'supervisor_account', title: 'Usuários', link:'/usuario' },
-        { icon: 'person', title: 'Perfil', link:'/perfil' },
-        { icon: 'spa', title: 'Produtos', link:'/produto/listar' }
+        { icon: 'home', title: 'Meus Pedidos', link:'/' },
+        // { icon: 'supervisor_account', title: 'Usuários', link:'/usuario' },
+        // { icon: 'person', title: 'Perfil', link:'/perfil' },
+        // { icon: 'spa', title: 'Produtos', link:'/produto/listar' }
       ]
       }
       return menuItens;

@@ -7,6 +7,7 @@ import router from './router'
 import Vuetify from 'vuetify'
 import 'vuetify/dist/vuetify.min.css'
 import { store } from './store';
+import numericfilter from './filter/numericfilter'
 
 Vue.use(Vuetify)
 
@@ -28,6 +29,16 @@ new Vue({
       storageBucket: 'futura-952cb.appspot.com',
       messagingSenderId: '1058902286056'
     });
+
+    firebase.auth().onAuthStateChanged(user =>{
+      if (user) {
+        this.$store.dispatch('autoLogin', user);
+      } else {
+        this.$store.dispatch('autoLogin', null);
+        this.$router.push('/entrar');
+      }
+    });
+
     this.$store.dispatch('carregarClientes');
     this.$store.dispatch('carregarProdutos');
   }
